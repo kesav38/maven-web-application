@@ -14,7 +14,7 @@ node {
         sh "${mavenhome}/bin/mvn clean package"
     }
     stage('soanrqube report'){
-        sh "${mavenhome}/bin/mvn cean sonar:sonar "
+        sh "${mavenhome}/bin/mvn clean sonar:sonar "
     }
     stage('uploadto_artifact repo'){
         sh "${mavenhome}/bin/mvn clean deploy "

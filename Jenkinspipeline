@@ -10,7 +10,7 @@ node{
     stage('build'){
         sh "${mavenhome}/bin/mvn clean package"
     }
- /*    stage('soanrqube report'){
+    stage('soanrqube report'){
         sh "${mavenhome}/bin/mvn clean sonar:sonar "
     }
     stage('uploadto_artifact repo'){
@@ -20,5 +20,5 @@ node{
         sshagent(['186c4002-4fc1-4d4b-9d6d-8c68c9b59b06']) {
             sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.11.255:/opt/apache-tomcat-9.0.75/webapps"
             }
-    } */
+    } 
 } //node closing

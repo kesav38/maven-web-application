@@ -1,5 +1,6 @@
 node {
     try {
+    Slacknotif('STARTED')
     echo "current job name is : ${env.JOB_NAME}"
     echo "current node name is : ${env.NODE_NAME}"
     echo "jenkins page ofcl path url is : ${env.JENKINS_URL}"
@@ -13,7 +14,7 @@ node {
         sh "${mavenhome}/bin/mvn clean package"
     }
     stage('soanrqube report'){
-        sh "${mavenhome}/bin/mvn clean sonar:sonar "
+        sh "${mavenhome}/bin/mvn cean sonar:sonar "
     }
     stage('uploadto_artifact repo'){
         sh "${mavenhome}/bin/mvn clean deploy "

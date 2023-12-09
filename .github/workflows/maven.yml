@@ -23,8 +23,17 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven & generate soanr report
-      run: mvn -B package sonar:sonar --file pom.xml -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
+      run: mvn -B package --file pom.xml
+    - name: sonar report 
+      run: mvn sonar:soanr --file pom.xml -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_URL:  ${{ secrets.SONAR_URL }}
-
+    - name: docker build
+      run: |
+      docker build -t kesav38/mvn_image:1 . 
+      docker push kesav38/mvn_image:1
+      docker login -u
+      env:
+        Username: ${{  DOCKER_USERNAME  }}
+        passwd: ${{DOCKER_PASSWD}}

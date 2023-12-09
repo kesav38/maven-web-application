@@ -31,9 +31,9 @@ jobs:
         SONAR_URL:  ${{ secrets.SONAR_URL }}
     - name: docker build
       run: |
-      docker build -t kesav38/mvn_image:1 . 
-      docker push kesav38/mvn_image:1
-      docker login -u $Username -p $passwd
+        docker build -t kesav38/mvn_image:1 . 
+        docker push kesav38/mvn_image:1
+        docker login -u $Username -p $passwd
       env:
-        Username: ${{  DOCKER_USERNAME  }}
-        passwd: ${{DOCKER_PASSWD}}
+        Username: ${{ secrets.DOCKER_USERNAME }}
+        passwd: ${{ secrets.DOCKER_PASSWD }}

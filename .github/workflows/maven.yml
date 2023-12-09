@@ -33,7 +33,7 @@ jobs:
       run: |
       docker build -t kesav38/mvn_image:1 . 
       docker push kesav38/mvn_image:1
-      docker login -u
+      docker login -u $Username -p $passwd
       env:
         Username: ${{  DOCKER_USERNAME  }}
         passwd: ${{DOCKER_PASSWD}}

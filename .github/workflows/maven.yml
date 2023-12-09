@@ -50,4 +50,4 @@ jobs:
         access-key-id: ${{ secrets.ACCESS_KEY }}
         secret-access-key: ${{ secrets.SECRET_KEY }}
         region: ${{secrets.AWS_REGION}}
-        image: my-image:v1${{secrets.ECR_REPO_URL}}:${{ github.sha }}
+        image: ${{secrets.ECR_REPO_URL}}:${{ github.sha }}

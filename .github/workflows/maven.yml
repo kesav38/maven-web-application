@@ -42,4 +42,12 @@ jobs:
     - name: docker build 
       run: |
         docker build -t ${{secrets.ECR_REPO_URL}}:${{ github.sha }}  .
-        aws configure AWS Access Key ID:${{secrets.ACCESS_KEY}}  AWS Secret Access Key:${{secrets.SECRET_KEY}}
+     #  aws configure AWS Access Key ID:${{secrets.ACCESS_KEY}}  AWS Secret Access Key:${{secrets.SECRET_KEY}}
+
+    - name: Push to ECR
+      uses: jwalton/gh-ecr-push@v1
+      with:
+        access-key-id: ${{ secrets.ACCESS_KEY }}
+        secret-access-key: ${{ secrets.SECRET_KEY }}
+        region: ${{secrets.AWS_REGION}}
+        image: my-image:v1${{secrets.ECR_REPO_URL}}:${{ github.sha }}

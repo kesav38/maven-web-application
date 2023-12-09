@@ -44,7 +44,7 @@ jobs:
       with:
           access-key-id: ${{ secrets.ACCESS_KEY}}
           secret-access-key: ${{ secrets.SECRET_KEY }}
-          region: ${{ AWS_REGION }}
+          region: ${{ secrets.AWS_REGION }}
           local-image: mvn-image
           image: mvn_image:${{ github.sha }}
           

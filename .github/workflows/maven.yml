@@ -48,8 +48,3 @@ jobs:
          # ignore-unfixed: true
           #vuln-type: 'os,library'
           #severity: 'LOW'
-        docker login -u $Username -p $passwd
-        docker push kesav38/mvn_image:1
-      env:
-        Username: ${{ secrets.DOCKER_USERNAME }}
-        passwd: ${{ secrets.DOCKER_PASSWD }}

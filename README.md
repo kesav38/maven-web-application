@@ -1,1 +1,1 @@
- Automating Docker Image Upload to AWS ECR using GitHub Actions
+ ## Automating Docker Image Upload to AWS ECR using GitHub Actions

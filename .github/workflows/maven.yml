@@ -41,5 +41,5 @@ jobs:
        # passwd: ${{ secrets.DOCKER_PASSWD }}
     - name: docker build 
       run: |
-        docker build -t $ECR_REPO_URL:${{ github.sha }}  .
+        docker build -t ${{secrets.ECR_REPO_URL}}:${{ github.sha }}  .
         aws configure AWS Access Key ID:${{secrets.ACCESS_KEY}}  AWS Secret Access Key:${{secrets.SECRET_KEY}}

@@ -45,7 +45,7 @@ jobs:
           access-key-id: ${{ secrets.ACCESS_KEY}}
           secret-access-key: ${{ secrets.SECRET_KEY }}
           region: ${{ secrets.AWS_REGION }}
-          image: mvn_image:${{ github.sha }}
+          local_image: mvn_image:${{ github.sha }}
           
    # - name: push to ECR
     #  run: |

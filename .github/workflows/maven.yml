@@ -35,7 +35,7 @@ jobs:
         docker build -t kesav38/mvn_image:${{ github.sha }} . 
         #trivy image  kesav38/mvn_image:${{ github.sha }}
         docker login -u $Username -p $passwd
-        docker push kesav38/mvn_image:1
+        docker push kesav38/mvn_image:${{ github.sha }}
       env:
         Username: ${{ secrets.DOCKER_USERNAME }}
         passwd: ${{ secrets.DOCKER_PASSWD }}

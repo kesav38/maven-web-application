@@ -24,3 +24,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Sonar report 
+      run: mvn sonar:sonar --file pom.xml
+      with:
+        login: ${{secrets.SONAR_TOKEN}}
+        host:  ${{secrets.SONAR_URL}}
+

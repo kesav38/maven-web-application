@@ -57,6 +57,7 @@ jobs:
         ECR_REPO_URL: ${{ secrets.ECR_REPO_URL }}
       run: |
           pwd
+          ls -l maven-web-application-1/target/*
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.

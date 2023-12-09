@@ -60,7 +60,7 @@ jobs:
           docker push $ECR_REPO_URL/mvn_image:${{ github.sha }}
          # echo "image=$ECR_REPO_URL/mvn_image:${{ github.sha }}" >> $GITHUB_OUTPUT
       env:
-        ECR_REPO_URL= ${{ ECR_REPO_URL }}
+        ECR_REPO_URL= ${{ secrets.ECR_REPO_URL }}
 
     
    # - name: push to ECR

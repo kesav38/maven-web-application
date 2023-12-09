@@ -26,7 +26,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Sonar report 
       run: mvn sonar:sonar --file pom.xml
-      with:
-        login: ${{secrets.SONAR_TOKEN}}
-        host:  ${{secrets.SONAR_URL}}
+      env:
+        SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+        SONAR_URL:  ${{secrets.SONAR_URL}}
 

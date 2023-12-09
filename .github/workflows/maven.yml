@@ -34,7 +34,7 @@ jobs:
         docker build -t kesav38/mvn_image:${{ github.sha }} . 
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
-        with:
+      with:
           image-ref: 'kesav38/mvn_image:${{ github.sha }}'
           format: 'table'
           exit-code: '1'

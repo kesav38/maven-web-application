@@ -41,7 +41,7 @@ jobs:
        # passwd: ${{ secrets.DOCKER_PASSWD }}
     - name: docker build 
       run: |
-        docker build -t ${{secrets.ECR_REPO_URL}}:${{ github.sha }}  .
+        docker build -t ${{secrets.ECR_REPO_URL}}:1  .
      #  aws configure AWS Access Key ID:${{secrets.ACCESS_KEY}}  AWS Secret Access Key:${{secrets.SECRET_KEY}}
 
     - name: Push to ECR
@@ -50,4 +50,4 @@ jobs:
         access-key-id: ${{ secrets.ACCESS_KEY }}
         secret-access-key: ${{ secrets.SECRET_KEY }}
         region: ${{secrets.AWS_REGION}}
-        image: ${{secrets.ECR_REPO_URL}}:${{ github.sha }}
+        image: ${{secrets.ECR_REPO_URL}}:1

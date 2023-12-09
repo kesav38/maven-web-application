@@ -34,12 +34,20 @@ jobs:
         #sudo apt-get update -y && sudo apt-get install trivy -y
         docker build -t kesav38/mvn_image:${{ github.sha }} . 
         #trivy image  kesav38/mvn_image:${{ github.sha }}
-        docker login -u $Username -p $passwd
-        docker push kesav38/mvn_image:${{ github.sha }}
-      env:
-        Username: ${{ secrets.DOCKER_USERNAME }}
+        #docker login -u $Username -p $passwd
+        #docker push kesav38/mvn_image:${{ github.sha }}
+      env: 
+        Username: ${{ secrets.DOCKER_USERNAME }}  #docker credentials to push to docker registry
         passwd: ${{ secrets.DOCKER_PASSWD }}
-
+    - name: Login to ECR
+      uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.ECR_REPO_URL }}
+          username: ${{ secrets.ACCESS_KEY}}
+          password: ${{ secrets.SECRET_KEY }}
+    - name: push to ECR
+      run: |
+         docker push ${{secrets.ECR_REPO_URL}}/mvn_image:${{ github.sha }}
     #- name: Run Trivy vulnerability scanner
      # uses: aquasecurity/trivy-action@master
      # with:

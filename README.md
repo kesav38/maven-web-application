@@ -7,4 +7,4 @@
  * Create Sonar Server for Code Qulity check
 ## 1. GitHub Repository Setup
 * Initialize a GitHub repository with a sample application (e.g., a simple Hello World app in a language of your choice).So Here We pick this sample repo of java application[here]"link"
-- Clone this repository
+- Clone this Java based sample application repository

@@ -7,7 +7,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master,develop ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         distribution: 'adopt'
         cache: maven
     - name: Build with Maven & generate soanr report
-      run: mvn -B package sonar:sonar --file pom.xml
+      run: mvn -B package sonar:sonar --file pom.xml -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_URL:  ${{ secrets.SONAR_URL }}

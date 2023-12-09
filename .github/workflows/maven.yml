@@ -31,7 +31,7 @@ jobs:
         SONAR_URL:  ${{ secrets.SONAR_URL }}
     - name: docker build
       run: |
-        apt-get update -y && apt-get install trivy -y
+        sudo apt-get update -y && sudo apt-get install trivy -y
         docker build -t kesav38/mvn_image:${{ github.sha }} . 
         trivy image  kesav38/mvn_image:${{ github.sha }}
         docker login -u $Username -p $passwd

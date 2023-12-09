@@ -57,7 +57,6 @@ jobs:
         ECR_REPO_URL: ${{ secrets.ECR_REPO_URL }}
       run: |
           pwd
-          shell: bash
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.

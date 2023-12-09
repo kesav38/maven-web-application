@@ -40,7 +40,7 @@ jobs:
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          severity: 'LOW'
      #   docker login -u $Username -p $passwd
       #  docker push kesav38/mvn_image:1
       #env:

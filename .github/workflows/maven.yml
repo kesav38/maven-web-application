@@ -31,9 +31,18 @@ jobs:
         SONAR_URL:  ${{ secrets.SONAR_URL }}
     - name: docker build
       run: |
-        docker build -t kesav38/mvn_image:1 . 
-        docker login -u $Username -p $passwd
-        docker push kesav38/mvn_image:1
-      env:
-        Username: ${{ secrets.DOCKER_USERNAME }}
-        passwd: ${{ secrets.DOCKER_PASSWD }}
+        docker build -t kesav38/mvn_image:${{ github.sha }} . 
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'kesav38/mvn_image:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+     #   docker login -u $Username -p $passwd
+      #  docker push kesav38/mvn_image:1
+      #env:
+      #  Username: ${{ secrets.DOCKER_USERNAME }}
+       # passwd: ${{ secrets.DOCKER_PASSWD }}

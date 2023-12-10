@@ -93,5 +93,10 @@ User got created. To give access to this ECR for outisde user we need to have "A
 ## Created the "Access key" and "secret key" for user .store these keys in another file safely to make it reuse these keys for Github Actions.
 
 # 4. GitHub Actions Workflow:
+This github action flow looks going to have these stages "Build" , "Code Quality Analysis" , "Docker Build" , "Push the image to ECR". we can write separate job for each stage in yml file to run the workflow otheriwise we can run all these stages as steps with in the single job.
+We choosed to run all these stages as steps with in the single job.
+## (a)java Build
+To execute build for java code , build tool is "maven" and executes the following command.
+  mvn clean package --file pom.xml
 
 

@@ -2,6 +2,7 @@
  ____________________________________________________________
  ## Objective: 
    Create a GitHub Actions workflow that automatically builds Docker images and uploads them to AWS Elastic Container Registry (ECR) upon code pushes or pull requests.
+   
  ## Basic Pre-requesites:
  * Clone Git repository of Sample Code
  * Create Sonar Server for Code Qulity check
@@ -9,20 +10,22 @@
 * Initialize a GitHub repository with a sample application (e.g., a simple Hello World app in a language of your choice).So Here We pick this sample repo of java application[here](https://github.com/kesav38/maven-web-application.git)
 <img width="959" alt="Screenshot 2023-12-09 224015" src="https://github.com/kesav38/maven-web-application/assets/110167532/b2d16261-6d66-47ca-bc54-356f34fd9bf9">
 
- ## Took this repo as sample application , fork this repo.
+ ### Took this repo as sample application , fork this repo.
 
 <img width="953" alt="Screenshot 2023-12-09 223910" src="https://github.com/kesav38/maven-web-application/assets/110167532/8a759614-87ef-4c3b-acbe-4e7e9225f07a">
 
- ## forked this repo to our github succesfully.
+ ### forked this repo to our github succesfully.
 
 <img width="948" alt="Screenshot 2023-12-09 224108" src="https://github.com/kesav38/maven-web-application/assets/110167532/25cc9ce8-0b00-4dde-b33d-c370229941fe">
 
  ## This is the repo this we are going to use to execute the build and create the images for it.
  
  * Here can see that it has only Src code and its pom.xml file which are important to execute build for this application.Need to write the Dockerfile for this application here.
+   
 # 2. Dockerfile creation
 *  Write the Dockerfile in local repo of the laptop and push that dockerfile to this github repo to trigger the github actions.
   Create a dir to intialize git and create the "Dockerfile" in that location as follows:
+
 <img width="960" alt="Screenshot 2023-12-10 094916" src="https://github.com/kesav38/maven-web-application/assets/110167532/11e41804-0779-4cea-ad1f-7b86cc284a48">
 <img width="960" alt="Screenshot 2023-12-10 094954" src="https://github.com/kesav38/maven-web-application/assets/110167532/5f7d2a80-0c65-4599-af7e-222af416eb43">
 <img width="960" alt="Screenshot 2023-12-10 100113" src="https://github.com/kesav38/maven-web-application/assets/110167532/03126497-2886-4180-b0d0-b48fba6e5484">
@@ -38,6 +41,7 @@
 
 
 ## Important points to note while writing the Dockerfile
+
 * use alpine images as base image to reduce the size of image whcih is best pratice here, So we used alpine image as base image.
 * For complex aplcaitions its better to write the muti stage docker file to reduce image size.
 * Instead of using 2 or more RUN instructions mutiple times i dockerfile , then its better to execute all RUN instrcution commands in single line which reduces the no of layers of image. because each RUN instrcution of the image creates separete layer So that increase the size of image.
@@ -47,6 +51,7 @@
 * Need to create the IAM user with FULLAccess of ECR for github actions workflow to pull or push the images to the ECR registry.
 * (a) AWS ECR creation
 * (b) AWS IAM user for push or pull of images
+  
 ## (a) AWS ECR creation
 Search "ECR" in aws console search tab
 
@@ -112,16 +117,16 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 * In this workflow syntax it has job name. And this syntax explains that for every "Push" or "Pull Request" in "master" branch job goes to run.
  
 * This build runs on "ubnutu-latest" OS , which has pre installed Maven , docker also. Here we are installing the java which is pre-requisite for mvn build.
+  
      
-    name: Image build & push to ECR
-    on:
-      push:
+     name: Image build & push to ECR
+     on:
+       push:
+         branches: [ master ]
+       pull_request:
         branches: [ master ]
-      pull_request:
-        branches: [ master ]
-    jobs:
-      build:
-
+     jobs:
+       build:
         runs-on: ubuntu-latest
 
         steps:
@@ -149,11 +154,17 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 
   We are updating the same file "maven.yml" in local repo to avoid the multiple triggers and this file saved in same path ".github/workflows/maven.yml" in local repository in laptop we can see in the above figure.
 
-## (b) Code Quality Analysis: (we are  follwing this step for security best pratices)
+## (b) Code Quality Analysis: (we are  follwing this step for security best pratices):
+
 * To analyse the Quality of the code which we have, here we are going to use code quality tool called "Sonarqube".
-* ## It finds the Vulnerabilities, code smells, bugs of the code and these were extracted and scanned by the "Quality profiles" and "Quality gates" of Sonarqube. 
-* Pre-requisite is need to have SonarQube installed server.Follow the Sonarqube Official docs for Sonarqube server setup https://docs.sonarsource.com/sonarqube/9.9/setup-and-upgrade/install-the-server/\
-execute this command to prepare this Sonar code quality report for Java Src code.
+  
+* #### It finds the Vulnerabilities, code smells, bugs of the code and these were extracted and scanned by the "Quality profiles" and "Quality gates" of Sonarqube.
+  
+* Pre-requisite is need to have SonarQube installed server.
+  
+* Follow the Sonarqube Official docs for Sonarqube server setup https://docs.sonarsource.com/sonarqube/9.9/setup-and-upgrade/install-the-server/\
+  
+execute the following command to prepare this Sonar code quality report for Java Src code.
 
       mvn sonar:sonar --file pom.xml -Dsonar.host.url=<sonar-server_url> -Dsonar.login=<soanr-server-token>
 
@@ -194,7 +205,7 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 
       docker build -t <registry>/<image>:<tag>  .
           docker push  <registry>/<image>:<tag> 
-     #we already logged into the aws using above steps so no need to use "docker login command"
+     #we already created Access & secret key to push to AWS ECR ,So we no need to use "docker login command" to push or pull from docker registry
 
 
   Add the step to built and push to ECR in "maven.yml" as follows:
@@ -240,7 +251,11 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 
 ## 7. Bonus Tasks
 ### * Implement image scanning for vulnerabilities 
-  here we are applying image scanning for the image which we created here before pushing. so github actions for Trivy image scan refer this link https://github.com/aquasecurity/trivy-action#using-trivy-with-github-code-scanning\ ---> we choosed "Docker Image Scanning" Github actions flow
+ * here we are applying image scanning for the image which we created here before pushing.
+   
+ *  So to get  "Trivy image scan github actions" refer this link https://github.com/aquasecurity/trivy-action#using-trivy-with-github-code-scanning\
+ 
+ *  In that github Actions in link ---> we choosed "Docker Image Scanning" Github actions flow.
 
 #### add this Docker Image Scanning action to the "maven.yml" file in our local , we added this scanning after the build and before this pushing to AWS ECR , we can see it on the following image:
 

@@ -172,6 +172,9 @@ execute this command to prepare this Sonar code quality report for Java Src code
 
 ## (c) Config AWS credentials & Login:
 Here we executes Docker build to create docker images and pushes that docker image to the ECR where it scans image by default. we created IAM user "Access key" and "secret key" we uses those keys to configure to AWS to push the images to ECR.
+
  we are going to use "image push to ECR github actions" to push the image, we can refer that actions here https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service\
-    
+
+## NOTE: Access key, secret key, ECR url, AWS region, Repo url save these as Repo Secrets for security Best practices.
+
 

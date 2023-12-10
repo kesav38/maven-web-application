@@ -48,6 +48,18 @@ jobs:
           # push it to ECR so that it can
           # be deployed to ECS.
           docker build -t $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}  . 
+          
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: '$AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
           #REPO_NAME is env variable
           #AWS_REGISTRY_URL is lso env variable  
-          docker push $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
+          #docker push $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}

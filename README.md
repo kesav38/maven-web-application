@@ -45,6 +45,8 @@
 # 3. AWS ECR & IAM user Setup 
 * Create the ECR registry to keep our images in the repos.
 * Need to create the IAM user with FULLAccess of ECR for github actions workflow to pull or push the images to the ECR registry.
+* (a) AWS ECR creation
+* (b) AWS IAM user for push or pull of images
 ## (a) AWS ECR creation
 Search "ECR" in aws console search tab
 

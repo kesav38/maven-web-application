@@ -42,5 +42,25 @@
 * For complex aplcaitions its better to write the muti stage docker file to reduce image size.
 * Instead of using 2 or more RUN instructions mutiple times i dockerfile , then its better to execute all RUN instrcution commands in single line which reduces the no of layers of image. because each RUN instrcution of the image creates separete layer So that increase the size of image.
 
+# 3. AWS ECR & IAM user Setup 
+* Create the ECR registry to keep our images in the repos.
+* Need to create the IAM user with FULLAccess of ECR for github actions workflow to pull or push the images to the ECR registry.
+## (a) AWS ECR creation
+Search "ECR" in aws console search tab
+
+<img width="959" alt="Screenshot 2023-12-10 110013" src="https://github.com/kesav38/maven-web-application/assets/110167532/d1e00bc3-1ac3-47f1-910e-81cc0e3744d0">
+
+## Click on that ECR service opens its page to create ECR registry.
+
+<img width="959" alt="Screenshot 2023-12-10 110039" src="https://github.com/kesav38/maven-web-application/assets/110167532/74db13af-391c-4a1a-a85b-353be5a65264">
+
+## Click on ---> "get started" to create Reegistry.
+
+<img width="960" alt="Screenshot 2023-12-10 110232" src="https://github.com/kesav38/maven-web-application/assets/110167532/2de9f7c9-17a9-4d6f-b68b-9c9ddaaa6c7d">
+
+## we took "private registry" and give required details
+repositry name as "mvn_image" & ---> created registry.
+
+
 
 

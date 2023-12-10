@@ -152,4 +152,9 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 ## (b) Code Quality Analysis:
 * To analyse the Quality of the code which we have, here we are going to use code quality tool called "Sonarqube".
 * ## It finds the Vulnerabilities, code smells, bugs of the code and these were extracted and scanned by the "Quality profiles" and "Quality gates" of Sonarqube. 
-* Pre-requisite is need to have SonarQube installed server.Follow the Sonarqube Official docs for Sonarqube server setup [here]https://docs.sonarsource.com/sonarqube/9.9/setup-and-upgrade/install-the-server/\
+* Pre-requisite is need to have SonarQube installed server.Follow the Sonarqube Official docs for Sonarqube server setup https://docs.sonarsource.com/sonarqube/9.9/setup-and-upgrade/install-the-server/\
+execute this command to prepare this Sonar code quality report for Java Src code.
+    mvn sonar:sonar --file pom.xml -Dsonar.host.url=<sonar-server_url> -Dsonar.login=<soanr-server-token>
+This command produces the Sonar code quality report Java Src code. Add this command to the "maven.yml" file here.
+
+

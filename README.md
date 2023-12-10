@@ -99,11 +99,13 @@ We choosed to run all these stages as steps with in the single job.
 To execute build for java code , build tool is "maven" and executes the following command.
 
     mvn clean package --file pom.xml
-To write the Workflow file, go to cloned github repo ----> Actions  ---> search workflow we want ortherwise "write your own workflow" as follows:
+To write the Workflow file, go to cloned github repo ----> Actions  ---> search workflow we want ortherwise "setup workflow yyourself" as follows:
 
 <img width="957" alt="Screenshot 2023-12-10 132455" src="https://github.com/kesav38/maven-web-application/assets/110167532/98368784-3e0f-4cb4-85d1-899e8a1dd999">
 
-## we are going to write our own workflow here 
+## search "java with maven" ,on the top of this we will write our our own workflow here .
+* search "java with maven" ---> click on "configure", show the complete workflow syntax. Chnage the Name from "java with maven" to "Image build & push to ECR"
+
 this the workflow syntax which has job name. And this syntax explains that for every "Push" or "Pull Request" in "master" branch job goes to run.
      
     name: Image build & push to ECR

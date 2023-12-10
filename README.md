@@ -188,10 +188,18 @@ We saved as Secrets here.
 
 Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as per the Github actions referred in above link, is used login into AWS.
 
-## (d) Docker Build:
+## (d) Docker Build & push to ECR:
   
   Docker used to create the image for the java Src code. we uses the following commands to built and push to ECR.
 
       docker build -t <registry>/<image>:<tag>  .
           docker push  <registry>/<image>:<tag> 
      #we already logged into the aws using above steps so no need to use "docker login command"
+
+
+  Add the step to built and push to ECR in "maven.yml" as follows:
+
+<img width="960" alt="Screenshot 2023-12-10 172924" src="https://github.com/kesav38/maven-web-application/assets/110167532/d941a16c-b90b-49b3-9003-88d6d3294fab">
+
+
+ We added step to build the image and push to ECR.

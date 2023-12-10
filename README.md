@@ -66,8 +66,8 @@ Search "ECR" in aws console search tab
 <img width="960" alt="Screenshot 2023-12-10 110314" src="https://github.com/kesav38/maven-web-application/assets/110167532/b983969a-f474-44ab-b3f4-7b4b93bdff80">
 
        registry got created , inside the registry we have one repositry as "mvn_image" which we created now, inside that repository we can see that nothing is there.we didnt saved any images so its empty now.
-       
-        ------->Created the ECR registry <------
+ Created the ECR registry.
+ 
 ## (b) AWS IAM user for push or pull of images
   Search the IAM user in AWS console search tab
 

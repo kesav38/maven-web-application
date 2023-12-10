@@ -70,6 +70,23 @@ registry got created , inside the registry we have one repositry as "mvn_image" 
  
 ## (b) AWS IAM user for push or pull of images
   Search the IAM user in AWS console search tab
+  <img width="960" alt="Screenshot 2023-12-10 112113" src="https://github.com/kesav38/maven-web-application/assets/110167532/0a81f972-d6a3-4e05-a14d-a2dacd325c1a">
+  <img width="960" alt="Screenshot 2023-12-10 112316" src="https://github.com/kesav38/maven-web-application/assets/110167532/afe0b146-5c40-4dc4-b3e3-864830a1dc97">
+Create the user here.
+<img width="959" alt="Screenshot 2023-12-10 112510" src="https://github.com/kesav38/maven-web-application/assets/110167532/007637fb-bb79-4a01-9839-e32d7cb0e703">
 
+Give the User name "ECR_user" and required details 
 
+<img width="960" alt="Screenshot 2023-12-10 112701" src="https://github.com/kesav38/maven-web-application/assets/110167532/d42d87f4-381b-4fda-9296-8d1d80207b2e">
+
+Click on "Attach policies directly" & give this policy "AmazonEC2ContainerRegistryFullAcces" for the user.and review and create the user here.
+
+<img width="960" alt="Screenshot 2023-12-10 113100" src="https://github.com/kesav38/maven-web-application/assets/110167532/49005f54-bee6-4580-99c3-865a770bb15f">
+
+User got created. To give access to this ECR for outisde user we need to have "Access key" and "secret key" ,So create access key and secret key by click on user as follows.
+
+<img width="960" alt="Screenshot 2023-12-10 113124" src="https://github.com/kesav38/maven-web-application/assets/110167532/933a870e-95b8-4c72-9787-166416e16387">
+<img width="958" alt="Screenshot 2023-12-10 113228" src="https://github.com/kesav38/maven-web-application/assets/110167532/aef76c4c-3f44-4169-8fe7-e3b99fdcd0d1">
+
+## Created the "Access key" and "secret key" for user .store these keys in another file safely to make it reuse these keys.
 

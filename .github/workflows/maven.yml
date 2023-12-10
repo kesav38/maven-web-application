@@ -38,7 +38,7 @@ jobs:
     - name: Login to Amazon ECR
       uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
 
-    - name: Build, tag, push to Amazon ECR
+    - name: Build image
       env:
         AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
         REPO_NAME: ${{secrets.REPO_NAME}}
@@ -51,39 +51,22 @@ jobs:
           
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
-      env:
-        AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
-        REPO_NAME: ${{secrets.REPO_NAME}}
       with:
         image-ref: ${{ secrets.AWS_REGISTRY_URL }}/${{secrets.REPO_NAME}}:${{ github.sha }}
         format: 'sarif'
         output: 'trivy-results.sarif'
-
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: 'trivy-results.sarif'
-          #REPO_NAME is env variable
-          #AWS_REGISTRY_URL is lso env variable  
-          #docker push $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
-    - name: Send mail
-      if: always()
-      uses: dawidd6/action-send-mail@v2
-      with:
-        # mail server settings
-        server_address: smtp.gmail.com
-        server_port: 465
-        # user credentials
-        username: ${{ secrets.EMAIL_USERNAME }}
-        password: ${{ secrets.EMAIL_PASSWORD }}
-        # email subject
-        subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-        # email body as text
-        body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-        # comma-separated string, send email to
-        to: kesavareddyk6@gmail.com
-        # from email name
-        from: kesava reddy
+
+    - name: push to ECR
+      env:
+        AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
+        REPO_NAME: ${{secrets.REPO_NAME}}
+      run: |
+          docker push $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
+
 
 
 

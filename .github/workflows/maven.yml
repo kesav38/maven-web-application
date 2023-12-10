@@ -52,7 +52,7 @@ jobs:
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: '$AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}'
+        image-ref: $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
         format: 'sarif'
         output: 'trivy-results.sarif'
 

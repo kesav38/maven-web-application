@@ -203,3 +203,9 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 
 
  We added step to build the image and push to ECR.
+
+
+## 5. Security and Best Practices:
+
+##### We used Github secrets to configure sensitive data to pipeline flow for best security practices in github action workflow file as follows.
+

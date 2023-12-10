@@ -99,5 +99,5 @@ We choosed to run all these stages as steps with in the single job.
 To execute build for java code , build tool is "maven" and executes the following command.
 
     mvn clean package --file pom.xml
-
+To write the Workflow file, go to cloned github repo ----> Actions  ---> click on "New workflow" --->
 

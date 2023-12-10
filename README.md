@@ -142,7 +142,7 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
  
   Here Step "Build with maven" got executed alogn with the job successfully.
  
-## Iam writing this workflow in local repo of laptop in VSC(visual studio code) for better indendation.
+## Iam writing this workflow in local repo of laptop in VSC(visual studio code) for better indentation.
 
 <img width="960" alt="Screenshot 2023-12-10 151057" src="https://github.com/kesav38/maven-web-application/assets/110167532/eb279afc-140c-41af-8db4-e081d7ba1ca0">
 
@@ -179,10 +179,19 @@ Here we executes Docker build to create docker images and pushes that docker ima
 
 <img width="957" alt="Screenshot 2023-12-10 165046" src="https://github.com/kesav38/maven-web-application/assets/110167532/58e3f320-5c98-4d29-9775-2d4051a6c50d">
 
+
 We saved as Secrets here.
+
 
 <img width="960" alt="Screenshot 2023-12-10 165655" src="https://github.com/kesav38/maven-web-application/assets/110167532/85510bcd-5bcf-4edc-a82c-989e7916c2e3">
 
-Here we added the Steps "Configure AWS credentials","Login to Amazon ECR" as per the Github actions referred in above link, is used login into AWS.
 
+Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as per the Github actions referred in above link, is used login into AWS.
 
+## (d) Docker Build:
+  
+  Docker used to create the image for the java Src code. we uses the following commands to built and push to ECR.
+
+      docker build -t <registry>/<image>:<tag>  .
+          docker push  <registry>/<image>:<tag> 
+     #we already logged into the aws using above steps so no need to use "docker login command"

@@ -202,10 +202,16 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 <img width="960" alt="Screenshot 2023-12-10 172924" src="https://github.com/kesav38/maven-web-application/assets/110167532/d941a16c-b90b-49b3-9003-88d6d3294fab">
 
 
- We added step to build the image and push to ECR.
+   We added step to build the image and push to ECR.
 
 
 ## 5. Security and Best Practices:
 
 ##### We used Github secrets to configure sensitive data to pipeline flow for best security practices in github action workflow file as follows.
 
+<img width="957" alt="Screenshot 2023-12-10 165046" src="https://github.com/kesav38/maven-web-application/assets/110167532/b45dc0dd-aadd-4ca9-9aa8-d2d4b82195ff">
+
+## Run the workflow to check that its working or not :
+##### Push the files present in the local repo to remote repo to trigger the workflow.
+    git pull mvnweb master
+    git push mvnweb master

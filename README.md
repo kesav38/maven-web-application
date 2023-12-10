@@ -31,8 +31,8 @@
 
 <img width="735" alt="Screenshot 2023-12-10 100748" src="https://github.com/kesav38/maven-web-application/assets/110167532/862beedd-4975-4caa-a6a4-07877191bed3">
 
-## important points to note while writing the Dockerfile
-* use alpine images as base image to reduce the size of image whcih is best pratice here.
+## Important points to note while writing the Dockerfile
+* use alpine images as base image to reduce the size of image whcih is best pratice here, So we used alpine image as base image.
 * For complex aplcaitions its better to write the muti stage docker file to reduce image size.
 * Instead of using 2 or more RUN instructions mutiple times i dockerfile , then its better to execute all RUN instrcution commands in single line which reduces the no of layers of image. because each RUN instrcution of the image creates separete layer So that increase the size of image.
 

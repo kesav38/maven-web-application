@@ -93,9 +93,11 @@ User got created. To give access to this ECR for outisde user we need to have "A
 ## Created the "Access key" and "secret key" for user .store these keys in another file safely to make it reuse these keys for Github Actions.
 
 # 4. GitHub Actions Workflow:
-This github action flow looks going to have these stages "Build" , "Code Quality Analysis" , "Docker Build" , "Push the image to ECR". we can write separate job for each stage in yml file to run the workflow otheriwise we can run all these stages as steps with in the single job.
-We choosed to run all these stages as steps with in the single job.
-## (a)java Build
+*This github action flow looks going to have these stages 
+## "Build with Maven" , "Code Quality Analysis" , "Docker Build" , "Push the image to ECR". 
+* we can write separate job for each stage in yml file to run the workflow otheriwise we can run all these stages as steps with in the single job.
+* We choosed to run all these stages as steps with in the single job.
+## (a)Build with Maven:
 To execute build for java code , build tool is "maven" and executes the following command.
 
     mvn clean package --file pom.xml
@@ -137,20 +139,17 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 
 <img width="952" alt="Screenshot 2023-12-10 145826" src="https://github.com/kesav38/maven-web-application/assets/110167532/9693b87a-afab-4fa4-b26b-d96118ad8358">
 
+ 
   Here Step "Build with maven" got executed alogn with the job successfully.
  
 ## Iam writing this workflow in local repo of laptop in VSC(visual studio code) for better indendation.
 
 <img width="960" alt="Screenshot 2023-12-10 151057" src="https://github.com/kesav38/maven-web-application/assets/110167532/eb279afc-140c-41af-8db4-e081d7ba1ca0">
 
-We are updating the same file "maven.yml" in local repo to avoid the multiple triggers and this file saved in same path ".github/workflows/maven.yml" in local repository in laptop we can see in the above figure.
 
+  We are updating the same file "maven.yml" in local repo to avoid the multiple triggers and this file saved in same path ".github/workflows/maven.yml" in local repository in laptop we can see in the above figure.
 
-
-
-
-
-
-
-
-
+## (b) Code Quality Analysis:
+* To analyse the Quality of the code which we have, here we are going to use code quality tool called "Sonarqube".
+* ## It finds the Vulnerabilities, code smells, bugs of the code and these were extracted and scanned by the "Quality profiles" and "Quality gates" of Sonarqube. 
+* Pre-requisite is need to have SonarQube installed server.Follow the Sonarqube Official docs for Sonarqube server setup [here]https://docs.sonarsource.com/sonarqube/9.9/setup-and-upgrade/install-the-server/\

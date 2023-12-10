@@ -72,7 +72,9 @@ registry got created , inside the registry we have one repositry as "mvn_image" 
   Search the IAM user in AWS console search tab
   <img width="960" alt="Screenshot 2023-12-10 112113" src="https://github.com/kesav38/maven-web-application/assets/110167532/0a81f972-d6a3-4e05-a14d-a2dacd325c1a">
   <img width="960" alt="Screenshot 2023-12-10 112316" src="https://github.com/kesav38/maven-web-application/assets/110167532/afe0b146-5c40-4dc4-b3e3-864830a1dc97">
+  
 Create the user here.
+
 <img width="959" alt="Screenshot 2023-12-10 112510" src="https://github.com/kesav38/maven-web-application/assets/110167532/007637fb-bb79-4a01-9839-e32d7cb0e703">
 
 Give the User name "ECR_user" and required details 
@@ -88,5 +90,8 @@ User got created. To give access to this ECR for outisde user we need to have "A
 <img width="960" alt="Screenshot 2023-12-10 113124" src="https://github.com/kesav38/maven-web-application/assets/110167532/933a870e-95b8-4c72-9787-166416e16387">
 <img width="958" alt="Screenshot 2023-12-10 113228" src="https://github.com/kesav38/maven-web-application/assets/110167532/aef76c4c-3f44-4169-8fe7-e3b99fdcd0d1">
 
-## Created the "Access key" and "secret key" for user .store these keys in another file safely to make it reuse these keys.
+## Created the "Access key" and "secret key" for user .store these keys in another file safely to make it reuse these keys for Github Actions.
+
+# 4. GitHub Actions Workflow:
+
 

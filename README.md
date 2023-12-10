@@ -230,10 +230,10 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 
 <img width="959" alt="Screenshot 2023-12-10 182259" src="https://github.com/kesav38/maven-web-application/assets/110167532/3ac438e7-0bbe-4ea7-8808-aaf8e549628c">
 
-#### Sonar Report got generated in the server , we can observe in above figure , code quality failed for the java code but "sonar code quality report" got generated here during the workflow.
+#### Sonar Report got generated in the server , we can observe in above figure , code quality Gate failed for the java code but "sonar code quality report" got generated here during the workflow.
 
 <img width="960" alt="Screenshot 2023-12-10 182319" src="https://github.com/kesav38/maven-web-application/assets/110167532/78f141e0-57ce-4606-a255-74b3a4827544">
 
-#### Image pushed Successfully pushed to the ECR registry by github actions workflow.
+#### Image Successfully pushed to the ECR registry by github actions workflow.
 
 ## Completed the assesment here.

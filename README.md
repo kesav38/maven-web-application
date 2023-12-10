@@ -157,12 +157,12 @@ execute this command to prepare this Sonar code quality report for Java Src code
 
       mvn sonar:sonar --file pom.xml -Dsonar.host.url=<sonar-server_url> -Dsonar.login=<soanr-server-token>
 
-## NOTE: <sonar-server_url>,<soanr-server-token> save these as Repo Secrets for security best practices. 
+## NOTE: <sonar-server_url>,soanr-server-token save these as Repo Secrets for security best practices. 
 
 <img width="960" alt="Screenshot 2023-12-10 154741" src="https://github.com/kesav38/maven-web-application/assets/110167532/471d8b63-460d-4f73-ab00-8b4f6c08a007">
 
 
-This command produces the Sonar code quality report Java Src code. Add this command to the "maven.yml" file as Follows.
+### This command produces the Sonar code quality report Java Src code. Add this command to the "maven.yml" file as Follows.
 
 <img width="959" alt="Screenshot 2023-12-10 154447" src="https://github.com/kesav38/maven-web-application/assets/110167532/f82e2055-b012-4373-8ae9-035375bcaea4">
 

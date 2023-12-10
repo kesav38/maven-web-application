@@ -1,4 +1,4 @@
-# Automating Docker Image Upload to AWS ECR using GitHub Actions
+<img width="960" alt="Screenshot 2023-12-10 200647" src="https://github.com/kesav38/maven-web-application/assets/110167532/4147cc7d-2c00-44fa-a4e4-930472eb717e"><img width="960" alt="Screenshot 2023-12-10 200647" src="https://github.com/kesav38/maven-web-application/assets/110167532/0c291372-a638-4e69-a907-01e100fd5a61"># Automating Docker Image Upload to AWS ECR using GitHub Actions
  ____________________________________________________________
  ## Objective: 
    Create a GitHub Actions workflow that automatically builds Docker images and uploads them to AWS Elastic Container Registry (ECR) upon code pushes or pull requests.
@@ -237,3 +237,52 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 #### Image Successfully pushed to the ECR registry by github actions workflow.
 
 ## Completed the assesment here.
+
+## 7. Bonus Tasks
+### * Implement image scanning for vulnerabilities 
+  here we are applying image scanning for the image which we created here before pushing. so github actions for Trivy image scan refer this link https://github.com/aquasecurity/trivy-action#using-trivy-with-github-code-scanning\ ---> we choosed "Docker Image Scanning" Github actions flow
+
+#### add this Docker Image Scanning action to the "maven.yml" file in our local , we added this scanning after the build and before this pushing to AWS ECR , we can see it on the following image:
+
+<img width="960" alt="Screenshot 2023-12-10 200647" src="https://github.com/kesav38/maven-web-application/assets/110167532/bb67d07d-f36a-4914-8a6a-7cd12c39e2df">
+
+
+As we said we kept the "Trivy image scanning" no:2  between the "Build step" no:1  and "Push to ECR step" no:3 .saved this.
+
+This vulnerabilities or code errors report of trivy image scan are going to be saved to "github repo Security"-----> "code scannings"
+
+#### Lets try to execute the workflow to check that Trivy image scanning step is running or not ,iamge is going to pushes to ECR or not.
+     #execute push commands to trigger the build
+      git commit -a -m "trivy scan update"
+      git pull mvnweb master
+      git push mvnweb master
+
+  After the execution of these commands the Workflow got triggered as follows:
+
+
+<img width="956" alt="Screenshot 2023-12-10 202127" src="https://github.com/kesav38/maven-web-application/assets/110167532/b88752cc-7d14-4258-9791-9a669d396af4">
+
+#### Workflow triggered and status of job steps as follows:
+
+<img width="960" alt="Screenshot 2023-12-10 202151" src="https://github.com/kesav38/maven-web-application/assets/110167532/c24c7662-5a74-4b7f-bff1-9738afa38673">
+
+
+<img width="960" alt="Screenshot 2023-12-10 202351" src="https://github.com/kesav38/maven-web-application/assets/110167532/597508d7-24ec-46c9-aa71-f8e3da455891">
+
+### Workflow got executed all the steps successfully as above along with "trivy image scanning step also"
+
+#### After the Workflow success, we can see that code errors , vulnerablities are saved in "security of github repo's" ------> "code scanning" as follows:
+
+<img width="960" alt="Screenshot 2023-12-10 202417" src="https://github.com/kesav38/maven-web-application/assets/110167532/78bf5e03-a423-41e8-bf3d-f959274ab93a">
+
+
+<img width="960" alt="Screenshot 2023-12-10 202603" src="https://github.com/kesav38/maven-web-application/assets/110167532/813653ca-ce42-4035-8131-97cc87936c07">
+
+
+All vulnerabilities and code smell are saved here as above.
+
+### After the completion of whole work flow the image got pushed to the ECR as we can see in below: we have two images of two workflow builds.
+
+<img width="960" alt="Screenshot 2023-12-10 202624" src="https://github.com/kesav38/maven-web-application/assets/110167532/8fb44458-0a09-4ed8-999c-3097ae2377ca">
+
+### Assesment completed upto hear successfully.

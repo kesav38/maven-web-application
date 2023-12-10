@@ -5,7 +5,7 @@
  ## Basic Pre-requesites:
  * Clone Git repository of Sample Code
  * Create Sonar Server for Code Qulity check
-## 1. GitHub Repository Setup
+# 1. GitHub Repository Setup
 * Initialize a GitHub repository with a sample application (e.g., a simple Hello World app in a language of your choice).So Here We pick this sample repo of java application[here](https://github.com/kesav38/maven-web-application.git)
 <img width="959" alt="Screenshot 2023-12-09 224015" src="https://github.com/kesav38/maven-web-application/assets/110167532/b2d16261-6d66-47ca-bc54-356f34fd9bf9">
 
@@ -20,7 +20,7 @@
  ## This is the repo this we are going to use to execute the build and create the images for it.
  
  * Here can see that it has only Src code and its pom.xml file which are important to execute build for this application.Need to write the Dockerfile for this application here.
-## 1. Dockerfile creation
+# 2. Dockerfile creation
 *  Write the Dockerfile in local repo of the laptop and push that dockerfile to this github repo to trigger the github actions.
   Create a dir to intialize git and create the "Dockerfile" in that location as follows:
 <img width="960" alt="Screenshot 2023-12-10 094916" src="https://github.com/kesav38/maven-web-application/assets/110167532/11e41804-0779-4cea-ad1f-7b86cc284a48">

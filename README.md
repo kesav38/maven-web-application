@@ -105,8 +105,9 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 
 ## we are going to write our own workflow here 
 this the workflow syntax which has job name. And this syntax explains that for every "Push" or "Pull Request" in "master" branch job goes to run.
-    name: Image build & push to ECR
-    on:
+     
+     name: Image build & push to ECR
+     on:
       push:
         branches: [ master ]
       pull_request:

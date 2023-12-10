@@ -213,5 +213,8 @@ Here we added the Steps "Configure AWS credentials", "Login to Amazon ECR" as pe
 
 ## Run the workflow to check that its working or not :
 ##### Push the files present in the local repo to remote repo to trigger the workflow.
+
+    git add . && git commit -m "dockerfile & workflow update"
     git pull mvnweb master
     git push mvnweb master
+    

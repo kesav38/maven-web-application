@@ -32,7 +32,7 @@
 
 <img width="735" alt="Screenshot 2023-12-10 100748" src="https://github.com/kesav38/maven-web-application/assets/110167532/862beedd-4975-4caa-a6a4-07877191bed3">
 
-## Dockerfile is created as we can see in this repo.
+## Dockerfile is created, we can see that file in following location.
 
 <img width="960" alt="Screenshot 2023-12-10 104128" src="https://github.com/kesav38/maven-web-application/assets/110167532/23d28fb9-a824-4ae4-9757-60d9fa118872">
 

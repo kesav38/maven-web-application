@@ -1,4 +1,4 @@
-<img width="960" alt="Screenshot 2023-12-10 151057" src="https://github.com/kesav38/maven-web-application/assets/110167532/afe13822-2665-4946-bd9a-13b515f8d84f"># Automating Docker Image Upload to AWS ECR using GitHub Actions
+# Automating Docker Image Upload to AWS ECR using GitHub Actions
  ____________________________________________________________
  ## Objective: 
    Create a GitHub Actions workflow that automatically builds Docker images and uploads them to AWS Elastic Container Registry (ECR) upon code pushes or pull requests.

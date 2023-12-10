@@ -149,7 +149,7 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 
   We are updating the same file "maven.yml" in local repo to avoid the multiple triggers and this file saved in same path ".github/workflows/maven.yml" in local repository in laptop we can see in the above figure.
 
-## (b) Code Quality Analysis:
+## (b) Code Quality Analysis: (we are  follwing this step for security best pratices)
 * To analyse the Quality of the code which we have, here we are going to use code quality tool called "Sonarqube".
 * ## It finds the Vulnerabilities, code smells, bugs of the code and these were extracted and scanned by the "Quality profiles" and "Quality gates" of Sonarqube. 
 * Pre-requisite is need to have SonarQube installed server.Follow the Sonarqube Official docs for Sonarqube server setup https://docs.sonarsource.com/sonarqube/9.9/setup-and-upgrade/install-the-server/\
@@ -162,7 +162,16 @@ execute this command to prepare this Sonar code quality report for Java Src code
 <img width="960" alt="Screenshot 2023-12-10 154741" src="https://github.com/kesav38/maven-web-application/assets/110167532/471d8b63-460d-4f73-ab00-8b4f6c08a007">
 
 
+
 ### This command produces the Sonar code quality report Java Src code. Add this command to the "maven.yml" file as Follows.
 
+
 <img width="959" alt="Screenshot 2023-12-10 154447" src="https://github.com/kesav38/maven-web-application/assets/110167532/f82e2055-b012-4373-8ae9-035375bcaea4">
+
+#### Here we Added Sonar command to produce build report to find out  Vulnerabilities, code smells, bugs.
+
+## (c) Config AWS credentials & Login:
+Here we executes Docker build to create docker images and pushes that docker image to the ECR where it scans image by default. we created IAM user "Access key" and "secret key" we uses those keys to configure to AWS to push the images to ECR.
+ we are going to use "image push to ECR github actions" to push the image, we can refer that actions here https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service\
+    
 

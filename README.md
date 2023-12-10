@@ -64,7 +64,7 @@ repositry name as "mvn_image" & ---> created registry.
 <img width="959" alt="Screenshot 2023-12-10 110250" src="https://github.com/kesav38/maven-web-application/assets/110167532/09a6b213-cb98-46c9-83da-0ad67a8e1af9">
 <img width="960" alt="Screenshot 2023-12-10 110314" src="https://github.com/kesav38/maven-web-application/assets/110167532/b983969a-f474-44ab-b3f4-7b4b93bdff80">
 
-## registry got created , inside the registry we one repositry as "mvn_image" which we gave that, now inside that repository we can see that nothing is there.we didnt saved any images so its empty now.
+## registry got created , inside the registry we have one repositry as "mvn_image" which we created now, inside that repository we can see that nothing is there.we didnt saved any images so its empty now.
 
 
 

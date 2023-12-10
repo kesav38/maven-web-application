@@ -49,7 +49,7 @@ jobs:
           # be deployed to ECS.
           docker build -t $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}  . 
           
-    - name: Run Trivy vulnerability scanner
+    - name: Run Trivy vulnerability scan
       uses: aquasecurity/trivy-action@master
       env:
         AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}

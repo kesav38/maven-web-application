@@ -51,6 +51,9 @@ jobs:
           
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
+      env:
+        AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
+        REPO_NAME: ${{secrets.REPO_NAME}}
       with:
         image-ref: $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
         format: 'sarif'

@@ -103,7 +103,7 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 
 <img width="957" alt="Screenshot 2023-12-10 132455" src="https://github.com/kesav38/maven-web-application/assets/110167532/98368784-3e0f-4cb4-85d1-899e8a1dd999">
 
-## search "java with maven" ,on the top of this we will write our our own workflow here .
+## search "java with maven" ,on the top of this we will write our own workflow here otherwise we can write from scratch also.
 * search "java with maven" ---> click on "configure", show the complete workflow syntax. Change the Name from "Java CI with Maven" to "Image build & push to ECR"
 
 In this workflow syntax it has job name. And this syntax explains that for every "Push" or "Pull Request" in "master" branch job goes to run.
@@ -127,6 +127,18 @@ In this workflow syntax it has job name. And this syntax explains that for every
             java-version: '11'
             distribution: 'adopt'
             cache: maven
-        - name: Build with Maven 
+        - name: Build with Maven #Step for build of java src code
           run: mvn -B package --file pom.xml
-    
+
+## Iam writing this workflow in local repo of laptop in VSC(visual studio code) for better indendation.
+
+
+
+
+
+
+
+
+
+
+

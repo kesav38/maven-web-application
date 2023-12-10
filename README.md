@@ -97,6 +97,7 @@ This github action flow looks going to have these stages "Build" , "Code Quality
 We choosed to run all these stages as steps with in the single job.
 ## (a)java Build
 To execute build for java code , build tool is "maven" and executes the following command.
-  mvn clean package --file pom.xml
+
+    mvn clean package --file pom.xml
 
 

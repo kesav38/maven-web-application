@@ -157,7 +157,7 @@ execute this command to prepare this Sonar code quality report for Java Src code
 
       mvn sonar:sonar --file pom.xml -Dsonar.host.url=<sonar-server_url> -Dsonar.login=<soanr-server-token>
 
-## NOTE: <sonar-server_url>,soanr-server-token save these as Repo Secrets for security best practices. 
+### NOTE: <sonar-server_url>,soanr-server-token save these as Repo Secrets for security best practices. 
 
 <img width="960" alt="Screenshot 2023-12-10 154741" src="https://github.com/kesav38/maven-web-application/assets/110167532/471d8b63-460d-4f73-ab00-8b4f6c08a007">
 
@@ -175,6 +175,14 @@ Here we executes Docker build to create docker images and pushes that docker ima
 
  we are going to use "image push to ECR github actions" to push the image, we can refer that actions here https://docs.github.com/en/actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service\
 
-## NOTE: Access key, secret key, ECR url, AWS region, Repo url save these as Repo Secrets for security Best practices.
+### NOTE: Access key, secret key, ECR url, AWS region,AWS account No, Repo url save these as Repo Secrets for security Best practices.
+
+<img width="957" alt="Screenshot 2023-12-10 165046" src="https://github.com/kesav38/maven-web-application/assets/110167532/58e3f320-5c98-4d29-9775-2d4051a6c50d">
+
+We saved as Secrets here.
+
+<img width="960" alt="Screenshot 2023-12-10 165655" src="https://github.com/kesav38/maven-web-application/assets/110167532/85510bcd-5bcf-4edc-a82c-989e7916c2e3">
+
+Here we added the Steps "Configure AWS credentials","Login to Amazon ECR" as per the Github actions referred in above link, is used login into AWS.
 
 

@@ -1,4 +1,4 @@
-# Automating Docker Image Upload to AWS ECR using GitHub Actions
+<img width="960" alt="Screenshot 2023-12-10 151057" src="https://github.com/kesav38/maven-web-application/assets/110167532/afe13822-2665-4946-bd9a-13b515f8d84f"># Automating Docker Image Upload to AWS ECR using GitHub Actions
  ____________________________________________________________
  ## Objective: 
    Create a GitHub Actions workflow that automatically builds Docker images and uploads them to AWS Elastic Container Registry (ECR) upon code pushes or pull requests.
@@ -104,9 +104,12 @@ To write the Workflow file, go to cloned github repo ----> Actions  ---> search 
 <img width="957" alt="Screenshot 2023-12-10 132455" src="https://github.com/kesav38/maven-web-application/assets/110167532/98368784-3e0f-4cb4-85d1-899e8a1dd999">
 
 ## search "java with maven" ,on the top of this we will write our own workflow here otherwise we can write from scratch also.
+
 * search "java with maven" ---> click on "configure", show the complete workflow syntax. Change the Name from "Java CI with Maven" to "Image build & push to ECR"
 
-In this workflow syntax it has job name. And this syntax explains that for every "Push" or "Pull Request" in "master" branch job goes to run.
+* In this workflow syntax it has job name. And this syntax explains that for every "Push" or "Pull Request" in "master" branch job goes to run.
+ 
+* This build runs on "ubnutu-latest" OS , which has pre installed Maven , docker also. Here we are installing the java which is pre-requisite for mvn build.
      
     name: Image build & push to ECR
     on:
@@ -130,8 +133,17 @@ In this workflow syntax it has job name. And this syntax explains that for every
         - name: Build with Maven #Step for build of java src code
           run: mvn -B package --file pom.xml
 
+  And commit the changes to the workflow file. whenever we commit the chnages to repo under "master" it triggers workflow ,after commiting the step "Build with Maven" along with other steps of job got executed successfully. we can see as follows:
+
+<img width="952" alt="Screenshot 2023-12-10 145826" src="https://github.com/kesav38/maven-web-application/assets/110167532/9693b87a-afab-4fa4-b26b-d96118ad8358">
+
+  Here Step "Build with maven" got executed alogn with the job successfully.
+ 
 ## Iam writing this workflow in local repo of laptop in VSC(visual studio code) for better indendation.
 
+<img width="960" alt="Screenshot 2023-12-10 151057" src="https://github.com/kesav38/maven-web-application/assets/110167532/eb279afc-140c-41af-8db4-e081d7ba1ca0">
+
+We are updating the same file "maven.yml" in local repo to avoid the multiple triggers and this file saved in same path ".github/workflows/maven.yml" in local repository in laptop we can see in the above figure.
 
 
 

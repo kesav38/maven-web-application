@@ -55,7 +55,7 @@ jobs:
         AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
         REPO_NAME: ${{secrets.REPO_NAME}}
       with:
-        image-ref: $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
+        image-ref: ${{ secrets.AWS_REGISTRY_URL }}/${{secrets.REPO_NAME}}:${{ github.sha }}
         format: 'sarif'
         output: 'trivy-results.sarif'
 

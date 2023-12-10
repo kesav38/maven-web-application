@@ -1,0 +1,53 @@
+name: Image build & push to ECR
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+        cache: maven
+    - name: Build with Maven #Step for build of java src code
+      run: mvn -B package --file pom.xml
+    - name: sonar report 
+      run: mvn sonar:sonar --file pom.xml -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} #token saved as Secrets github 
+        SONAR_URL:  ${{ secrets.SONAR_URL }}   #Url saved as secrets in github
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@0e613a0980cbf65ed5b322eb7a1e075d28913a83
+      with:
+          aws-access-key-id: ${{ secrets.ACCESS_KEY }} #saved as Secrets github 
+          aws-secret-access-key: ${{ secrets.SECRET_KEY }} #saved as Secrets github 
+          aws-region: ${{ secrets.AWS_REGION }} #saved as Secrets github 
+
+    - name: Login to Amazon ECR
+      uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
+
+    - name: Build, tag, push to Amazon ECR
+      env:
+        AWS_REGISTRY_URL: ${{ secrets.AWS_REGISTRY_URL }}
+        REPO_NAME: ${{secrets.REPO_NAME}}
+
+      run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}  . 
+          #REPO_NAME is env variable
+          #AWS_REGISTRY_URL is lso env variable  
+          docker push $AWS_REGISTRY_URL/$REPO_NAME:${{ github.sha }}
